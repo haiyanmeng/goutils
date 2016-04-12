@@ -1,0 +1,18 @@
+66. Plus One 
+Given a non-negative number represented as an array of digits, plus one to the number.
+
+The digits are stored such that the most significant digit is at the head of the list.
+
+Analysis:
+question: decimal or octal or hexadecimal
+
+first we should go to check the last digit D, whether D < 9:
+if D < 9, then directly add 1 to D, return.
+
+If D == 9, then change D to 0, and try to add 1 to the second last digit. Notice the case, an extra 1 is needed.
+Like 4->1->2->9, the result should be 4->1->3->0.
+Like 9->9, the result should be 1->0->0.
+Time O(n^2); space O(1)
+
+We can also use another pointer to keep track the first digit M we met whose value is < 9, if D== 9, then we can just directly add 1 to M, and change the remaining value to be 0.
+Time O(n); space O(1)
