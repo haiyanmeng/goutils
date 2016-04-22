@@ -1,0 +1,4 @@
+computing the parity of a word
+
+If the number of bits which is set to be 1 in a word is even, return 0;
+If the number of bits which is set to be 1 in a word is odd, return 1.
