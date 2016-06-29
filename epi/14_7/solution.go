@@ -29,13 +29,6 @@ func (in intervals) Swap(i, j int) {
 	in[i], in[j] = in[j], in[i]
 }
 
-func openUnion(s, t bool) bool {
-	if s == true && t == true {
-		return true
-	}
-	return false
-}
-
 func merge(a, b interval) interval {
 	var left, right endpoint
 
@@ -44,7 +37,7 @@ func merge(a, b interval) interval {
 	} else {
 		// a.left.d == b.left.d
 		left.d = a.left.d
-		left.open = openUnion(a.left.open, b.left.open)
+		left.open = a.left.open && b.left.open
 	}
 
 	if a.right.d < b.right.d {
@@ -53,7 +46,7 @@ func merge(a, b interval) interval {
 		right = a.right
 	} else {
 		right.d = a.right.d
-		right.open = openUnion(a.right.open, b.right.open)
+		right.open = a.right.open && b.right.open
 	}
 
 	return interval{left, right}
