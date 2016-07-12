@@ -42,7 +42,7 @@ func main() {
 	n6 := btree.BTree{10, nil, nil}
 	n7 := btree.BTree{19, nil, nil}
 	n8 := btree.BTree{3, nil, nil}
-	n9 := btree.BTree{50, nil, nil}
+	n9 := btree.BTree{5, nil, nil}
 	n1.Left, n1.Right = &n2, &n3
 	n2.Left, n2.Right = &n4, &n5
 	n3.Left, n3.Right = &n6, &n7
