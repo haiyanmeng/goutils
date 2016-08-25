@@ -3,6 +3,7 @@ package stack
 import "fmt"
 
 type Stack struct {
+	Name string
 	data []int
 	n    int
 }
