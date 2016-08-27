@@ -63,3 +63,27 @@ func partition(a []int) int {
 	a[0], a[j] = a[j], a[0]
 	return j
 }
+
+func BucketSort(a []int) {
+	digit := 1
+	n := len(a)
+	for {
+		buckets := make([][]int, 10)
+		zeroCount := 0
+		for _, elem := range a {
+			i := (elem / digit) % 10
+			buckets[i] = append(buckets[i], elem)
+			if i == 0 {
+				zeroCount++
+			}
+		}
+		if zeroCount == n {
+			return
+		}
+		a = a[:0]
+		for _, bucket := range buckets {
+			a = append(a, bucket...)
+		}
+		digit *= 10
+	}
+}

@@ -13,4 +13,9 @@ func main() {
 	a = []int{5, 6, 6}
 	sort.QuickSort(a)
 	fmt.Println(a)
+
+	b := []int{128, 8, 37, 43435, 66, 2343}
+	fmt.Println(b)
+	sort.BucketSort(b)
+	fmt.Println(b)
 }
