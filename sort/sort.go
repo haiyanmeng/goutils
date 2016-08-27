@@ -67,8 +67,12 @@ func partition(a []int) int {
 func BucketSort(a []int) {
 	digit := 1
 	n := len(a)
+	buckets := make([][]int, 10)
 	for {
-		buckets := make([][]int, 10)
+		for i, _ := range buckets {
+			buckets[i] = []int{}
+		}
+
 		zeroCount := 0
 		for _, elem := range a {
 			i := (elem / digit) % 10
