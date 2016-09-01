@@ -11,20 +11,28 @@ and then scan the text, and compare whether each character in the text appears m
 */
 
 func writable(letter, text string) bool {
-	map_letter, map_text := map[rune]int{}, map[rune]int{}
+	map_letter := map[rune]int{}
 	for _, c := range letter {
 		map_letter[c]++
 	}
-	for _, c := range text {
-		map_text[c]++
-	}
 
-	for k, v := range map_letter {
-		if map_text[k] < v {
-			return false
+	for _, c := range text {
+		if _, ok := map_letter[c]; !ok {
+			continue
+		}
+
+		map_letter[c]--
+
+		if map_letter[c] == 0 {
+			delete(map_letter, c)
+		}
+
+		if len(map_letter) == 0 {
+			return true
 		}
 	}
-	return true
+
+	return false
 }
 
 func main() {
