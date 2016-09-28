@@ -11,6 +11,10 @@ func NewGenericStack() *GenericStack {
 	return &GenericStack{}
 }
 
+func (s *GenericStack) IsEmpty() bool {
+	return s.n == 0
+}
+
 func (s *GenericStack) Count() int {
 	return s.n
 }
